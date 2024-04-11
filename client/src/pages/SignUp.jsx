@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Button, Label, Spinner, TextInput } from 'flowbite-react';
+import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({});
@@ -52,9 +52,8 @@ const SignUp = () => {
         <div className='flex-1'>
           <Link to='/' className='font-bold dark:text-white text-4xl'>
             <span className='px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>
-              Ardhi
+              Sign Up
             </span>
-            Blogs
           </Link>
 
           <p className='text-sm mt-5'>
@@ -89,7 +88,7 @@ const SignUp = () => {
               <Label value='Password' />
               <TextInput
                 type='password'
-                placeholder='password'
+                placeholder='*****'
                 id='password'
                 onChange={handleChange}
               />
@@ -117,6 +116,12 @@ const SignUp = () => {
               Sign In
             </Link>
           </div>
+
+          {errorMessage && (
+            <Alert className='mt-5' color='failure'>
+              {errorMessage}
+            </Alert>
+          )}
         </div>
       </div>
     </div>
